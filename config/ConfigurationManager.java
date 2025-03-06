@@ -1,9 +1,11 @@
+import java.util.HashMap;
+import java.util.Map;
+
 class ConfigurationManager {
     private static ConfigurationManager instance;
-    private final java.util.Map<String, String> config;
+    private Map<String, String> config = new HashMap<>();
 
     private ConfigurationManager() {
-        config = new java.util.HashMap<>();
         config.put("maxPlayers", "100");
         config.put("defaultLanguage", "en");
         config.put("gameDifficulty", "medium");
@@ -18,11 +20,5 @@ class ConfigurationManager {
 
     public String getConfig(String key) {
         return config.get(key);
-    }
-
-    public void printAllConfigs() {
-        for (String key : config.keySet()) {
-            System.out.println(key + " -> " + config.get(key));
-        }
     }
 }
